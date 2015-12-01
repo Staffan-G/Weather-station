@@ -2,6 +2,7 @@
 import json
 import datetime
 import pprint
+import tkinter
 
 # hämta rapport
 smhiRapport = urllib.request.urlopen("http://opendata-download-metfcst.smhi.se/api/category/pmp1.5g/version/1/geopoint/lat/57.69/lon/11.96/data.json")
@@ -18,20 +19,31 @@ pp = pprint.PrettyPrinter(indent=4)
 pp.pprint(j_obj2['timeseries'][17])
 
 #gör lista av datum och tid
-tid = ['08:00', '10:00']
-list2 = []
+tider = ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00']
+dag2Temp = []
+dag2Neder = []
+dag2Snö = []
+dag2Moln = []
 
-#iterera genom lista, leta efter datum och tid
+#iterera genom lista
 for i in range(0, len(j_obj2['timeseries'])):
 
+    #om morgondagens datum finns
     if str(dag2.date()) in str(j_obj2['timeseries'][i]['validTime']):
-        for j in range(0, len(tid)):            
-                        
 
+        #iterera genom tider för morgondagens datum
+        for j in range(0, len(tider)):            
 
-            if tid[j] in str(j_obj2['timeseries'][i]['validTime']):
-                  list2.append(str(j_obj2['timeseries'][i]['t']))
-                  print("Temp imorgon 08:00 " + str(j_obj2['timeseries'][i]['t']))
+            #om 
+            if tider[j] in str(j_obj2['timeseries'][i]['validTime']):
+                  dag2Temp.append(str(j_obj2['timeseries'][i]['t']))
+                  dag2Neder.append(str(j_obj2['timeseries'][i]['pit']))
+                  dag2Snö.append(str(j_obj2['timeseries'][i]['pis']))
+                  dag2Moln.append(str(j_obj2['timeseries'][i]['tcc']))
+                  print(tider[j] + ": " + dag2Temp[j] + " grader. Nederbörd: " + dag2Neder[j] + "mm. Moln: " + dag2Moln[j])
+
+#rita upp display
+
                     
                 
         
