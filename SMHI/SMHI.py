@@ -71,7 +71,7 @@ for k in range(0, len(j_obj2['timeseries'])):
                 dag3Snö.append(str(j_obj2['timeseries'][k]['pis']))
                 dag3Moln.append(str(j_obj2['timeseries'][k]['tcc']))
                                 
-                print(str(dag3.date()) + tider[l] + ": " + dag3Temp[l] + " grader. Nederbörd: " + dag3Neder[l] + "mm. Moln: " + dag3Moln[l])
+                print(str(dag3.date()) + tider[l] + ": " + dag3Temp[-1] + " grader. Nederbörd: " + dag3Neder[-1] + "mm. Moln: " + dag3Moln[-1])
 
 #rita upp display
 
