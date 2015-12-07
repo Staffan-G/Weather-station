@@ -113,7 +113,7 @@ class SimpleTable(tk.Frame):
 
 if __name__ == "__main__":
     app = ExampleApp()
-    app.mainloop()   
+    app.mainloop()    
                 
         
 
